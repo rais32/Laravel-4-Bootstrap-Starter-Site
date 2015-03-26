@@ -26,7 +26,7 @@
 		================================================== -->
         <link rel="stylesheet" href="{{asset('bootstrap/css/bootstrap.min.css')}}">
         <link rel="stylesheet" href="{{asset('bootstrap/css/bootstrap-theme.min.css')}}">
-
+        <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
 		<style>
         body {
             padding: 60px 0;
@@ -53,7 +53,13 @@
 		<!-- To make sticky footer need to wrap in a div -->
 		<div id="wrap">
 		<!-- Navbar -->
-		<div class="navbar navbar-default navbar-inverse navbar-fixed-top">
+		<div class="navbar navbar-default navbar-inverse navbar-fixed-top
+			@if (Auth::check())
+                        @if(Auth::user()->sex == 'F')
+	                	background_header_login		
+	                	@endif
+	            @endif	
+			">
 			 <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -63,6 +69,8 @@
                         <span class="icon-bar"></span>
                     </button>
                 </div>
+
+                
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
                     <ul class="nav navbar-nav">
 						<li {{ (Request::is('/') ? ' class="active"' : '') }}><a href="{{{ URL::to('') }}}">Home</a></li>
@@ -70,6 +78,9 @@
 
                     <ul class="nav navbar-nav pull-right">
                         @if (Auth::check())
+                        @if(Auth::user()->username == 'F')
+	                		{{'asdfasdf'}}
+	                	@endif
                         @if (Auth::user()->hasRole('admin'))
                         <li><a href="{{{ URL::to('admin') }}}">Admin Panel</a></li>
                         @endif

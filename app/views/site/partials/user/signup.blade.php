@@ -17,7 +17,13 @@
             <label for="password_confirmation">{{{ Lang::get('confide::confide.password_confirmation') }}}</label>
             <input class="form-control" placeholder="{{{ Lang::get('confide::confide.password_confirmation') }}}" type="password" name="password_confirmation" id="password_confirmation">
         </div>
-
+        <div class="form-group">
+            <label for="password_confirmation">{{{ Lang::get('confide::confide.sex') }}}</label>
+            <select name="sex" class="form-control" style="width:auto">
+              <option value="m">Male</option>
+              <option value="f">Female</option>
+            </select>
+        </div>
         @if (Session::get('error'))
             <div class="alert alert-error alert-danger">
                 @if (is_array(Session::get('error')))

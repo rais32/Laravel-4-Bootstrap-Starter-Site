@@ -35,6 +35,7 @@ class UserController extends BaseController {
         list($user,$redirect) = $this->user->checkAuthAndRedirect('user');
         if($redirect){return $redirect;}
 
+        
         // Show the page
         return View::make('site/user/index', compact('user'));
     }
