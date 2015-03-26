@@ -14,7 +14,7 @@ class AddSexToUsers extends Migration {
 	{
 		Schema::table('users', function($table)
 		{
-		    $table->enum('sex', array('M', 'F'));
+		    $table->enum('sex', array('M', 'F'))->default('M');
 		});
 	}
 
